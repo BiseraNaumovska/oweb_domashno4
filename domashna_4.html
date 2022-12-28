@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-style: double;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+/*
+td:first-child{
+  background-color: rgb(180, 235, 235);
+}*/
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.heading {
+    background-color: rgb(155, 120, 97);
+    height: 100px; /* visina */
+    width: 100%; /* da go opfakja cel ekran od levo kon desno*/
+    display:flex; /* elementite da se fleksibilni vo hedingot */
+    align-items:center; /* centralno od hedingot da bidat postaveni elementite */
+    justify-content: space-between; /* postavenosta da e takva shto ke ima ednakov prostor izmegju site elementi */
+    /*padding: 0 5%;  da ima prostor megju elementite */
+}
+
+body{
+    height:calc(100vh - 100px);
+    background-color: rgb(226, 209, 191);
+    background-size: 500px ;
+    
+    
+}
+
+.blogche{
+    box-sizing: border-box;
+    font-family: Arial;
+    padding: 30px;
+
+
+  
+}
+
+
+.headerblog {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: transparent;
+  }
+  /* Create two unequal columns that floats next to each other */
+
+  .cardb {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  /* Fake image */
+  
+  .i1{
+    background-image: url('images.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}
+  
+  .i2{
+    background-image: url('posna-pita-sa-jabukama.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  .i3{
+    background-image: url('burek.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  
+
+  .linkovi{
+    text-decoration: none;
+  }
+
+  .containergal{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    flex-wrap: wrap;
+}
+
+.cardgal{
+    background:rgb(255, 255, 255);
+    width: 270px;
+    margin: 10px;
+    border: 3px;
+    
+}
+.cardgal-imagegal{
+    height: 170px;
+    margin-bottom: 15px;
+    background-size:cover;
+}
+
+.car-11{
+    background-image: url('images.jpg');
+    background-position: center;
+}
+.car-22{
+    background-image: url('posna-pita-sa-jabukama.jpg');
+    background-position: center;
+}
+.car-33{
+    background-image: url('burek.jpg');
+    background-position: center;
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+  <section class="blogche" >
+    <div class="headerblog">
+        <h2>СИЛБО ПЕКАРА</h2>
+      </div>
+      <div class="row">
+        <div class="leftcolumn">
+          <div class="cardb">
+            <h1>Листа на податоци за пекарата Силбо</h1>
+              <p>Внеси податок за пребарување</p>  
+              <input id="myInput" type="text" placeholder="Search..">
+              <br><br>
+            
+              
+<table>
+  <thead>
+  <tr>
+    <th>Име на производ</th>
+    <th>Залиха</th>
+    <th>Благо/Солено</th>
+    <th>Посно/Мрсно</th>
+    <th>Цена (денари)</th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>домашен леб</td>
+    <td>15</td>
+    <td>солено</td>
+    <td>посно</td>
+    <td>37</td>
+  </tr>
+  <tr>
+    <td>селски леб</td>
+    <td>11</td>
+    <td>солено</td>
+    <td>посно</td>
+    <td>46</td>
+  </tr>
+  <tr>
+    <td>интегрален леб</td>
+    <td>6</td>
+    <td>солено</td>
+    <td>посно</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>силбо ѓеврек</td>
+    <td>25</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>кифла со сирење</td>
+    <td>9</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>бурек со месо</td>
+    <td>8</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>75</td>
+  </tr>
+  <tr>
+    <td>бурек со сирење</td>
+    <td>8</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>бурек со спањак и сирење</td>
+    <td>16</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>75</td>
+  </tr>
+  <tr>
+    <td>бурек пица</td>
+    <td>4</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>65</td>
+  </tr>
+  <tr>
+    <td>дебармаалски сендвич</td>
+    <td>8</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>55</td>
+  </tr>
+  <tr>
+    <td>ладен пилешки сендвич</td>
+    <td>7</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>ладен кулен сендвич</td>
+    <td>4</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>лиснато шунка - кашкавал</td>
+    <td>3</td>
+    <td>солено</td>
+    <td>мрсно</td>
+    <td>45</td>
+  </tr>
+  <tr> 
+    <td>кифла со крем</td>
+    <td>15</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>лиснато со вишна</td>
+    <td>10</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>лиснато со јаболко</td>
+    <td>7</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>лиснато со шумско</td>
+    <td>8</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>кифла со маг</td>
+    <td>4</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>крофна со шеќер</td>
+    <td>5</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>крофна со чоколадо</td>
+    <td>12</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>крофна со мармалад</td>
+    <td>3</td>
+    <td>благо</td>
+    <td>посно</td>
+    <td>35</td>
+  </tr>
+  </tbody>
+</table>
+       
+          </div>       
+    
+</section>
+
+<section class="containergal" >
+  <div class="cardgal">
+    <h2>За пекарата</h2>
+      <div class="cardgal-imagegal car-11"></div>
+      <p>Силбо е пекара со 10 годишна традиција на...</p>            
+              </div>
+
+  <div class="cardgal">
+    <h2>Пити</h2>
+      <div class="cardgal-imagegal car-22"></div>
+           </div>
+
+  <div class="cardgal">
+    <h2> Бурек </h2>
+      <div class="cardgal-imagegal car-33"></div>
+          </div>
+
+</section>
+
+
+
+</body>
+</html>
